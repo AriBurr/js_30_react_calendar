@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from './Navigation';
-import keys from '../data/1_Drums_data';
+import keys from '../data/1_DrumsData';
 import styled from 'styled-components';
 
 const Container = styled.div`

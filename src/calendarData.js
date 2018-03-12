@@ -14,6 +14,10 @@ const calendaData = [
   {
     link: '/css_variables',
     image: css
+  },
+  {
+    link: '/array_cardio_1',
+    image: ''
   }
 ];
 
