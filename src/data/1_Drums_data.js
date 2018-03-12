@@ -1,12 +1,12 @@
-import boom from '../lib/sounds/boom.wav'
-import clap from '../lib/sounds/clap.wav'
-import hihat from '../lib/sounds/hihat.wav'
-import kick from '../lib/sounds/kick.wav'
-import openhat from '../lib/sounds/openhat.wav'
-import ride from '../lib/sounds/ride.wav'
-import snare from '../lib/sounds/snare.wav'
-import tink from '../lib/sounds/tink.wav'
-import tom from '../lib/sounds/tom.wav'
+import boom from '../lib/sounds/boom.wav';
+import clap from '../lib/sounds/clap.wav';
+import hihat from '../lib/sounds/hihat.wav';
+import kick from '../lib/sounds/kick.wav';
+import openhat from '../lib/sounds/openhat.wav';
+import ride from '../lib/sounds/ride.wav';
+import snare from '../lib/sounds/snare.wav';
+import tink from '../lib/sounds/tink.wav';
+import tom from '../lib/sounds/tom.wav';
 
 const keys = [
   {
@@ -53,7 +53,7 @@ const keys = [
     key: 'L',
     sound: tom,
     name: 'tom'
-  },
-]
+  }
+];
 
-export default keys
+export default keys;

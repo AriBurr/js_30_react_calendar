@@ -1,48 +1,47 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Segment, Header, Icon, Image } from 'semantic-ui-react'
-import calendarData from '../calendarData'
-import { Link } from 'react-router-dom'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import calendarData from '../calendarData';
+import styled from 'styled-components';
+import { Image } from 'semantic-ui-react';
 
 const PageWrapper = styled.div`
-  .calendarStyle{
-    display: grid;
+  .calendarStyle {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    max-width: 85%;
     grid-auto-rows: 150px;
+    grid-gap: 1em;
     margin: 0 auto;
+    max-width: 85%;
   }
 
-  div:nth-child(odd){
-    background-color: yellow;
-  }
-
-  h1{
+  h1 {
+    font-weight: 800;
+    font-size: 6em;
+    line-height: 0.5em;
+    margin-top: 0.5em;
     text-align: center;
   }
-`
 
-class Calendar extends React.Component {
+  h3 {
+    font-weight: 400;
+    text-align: center;
+  }
+`;
 
-  generateCalendar = () => {
+const Calendar = () => {
+  const generateCalendar = () => {
     return calendarData.map((day, i) => {
-      return <Image as={Link} src={day.image} to={day.link} key={i} />
-    })
-  }
+      return <Image as={Link} src={day.image} to={day.link} key={i} />;
+    });
+  };
 
-  render () {
-    return(
-      <PageWrapper>
-        <Icon as={Link} to='/' name='arrow circle left' />
-        <Segment as='h1'>Javascript 30 Challenge</Segment>
-        <Segment basic className='calendarStyle'>
-          {this.generateCalendar()}
-        </Segment>
-      </PageWrapper>
-    )
-  }
-}
+  return (
+    <PageWrapper>
+      <h1>React</h1>
+      <h3>Javascript 30 Challenge</h3>
+      <div className="calendarStyle">{generateCalendar()}</div>
+    </PageWrapper>
+  );
+};
 
 export default Calendar;

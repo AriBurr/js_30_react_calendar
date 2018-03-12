@@ -1,13 +1,14 @@
-import clock from './images/clock.png'
+import clock from './images/clock.png';
+import drums from './images/drums.png';
 
 const calendaData = [
   {
-      link: '/clock',
-      image: clock
+    link: '/clock',
+    image: clock
   },
   {
-      link: '/drums',
-      image: ''
+    link: '/drums',
+    image: drums
   }
 ];
 

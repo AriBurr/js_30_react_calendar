@@ -8,7 +8,6 @@ const Container = styled.div`
   background-size: cover;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 
   .keys {
     display: flex;
@@ -53,28 +52,30 @@ const Container = styled.div`
 
 class Drums extends React.Component {
   componentDidMount() {
-    this.addListeners()
+    this.addListeners();
   }
 
   handleKeyPress = key => {
-    const element = this.refs[`div${key}`]
+    const element = this.refs[`div${key}`];
     const audio = this.refs[key];
     if (!audio) return;
     audio.currentTime = 0;
     audio.play();
-    element.classList.add('playing')
+    element.classList.add('playing');
   };
 
-  removeTransition(e){
-    if(e.propertyName !== 'transform') return;
-    this.classList.remove('playing')
+  removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    this.classList.remove('playing');
   }
 
   addListeners = () => {
-    const keys = document.querySelectorAll('.key')
-    keys.forEach(key => key.addEventListener('transitionend', this.removeTransition))
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key =>
+      key.addEventListener('transitionend', this.removeTransition)
+    );
     document.addEventListener('keydown', this.handleKey);
-  }
+  };
 
   handleKey = e => {
     this.handleKeyPress(e.key.toUpperCase());
@@ -93,13 +94,7 @@ class Drums extends React.Component {
 
   createAudio = () => {
     return keys.map((key, i) => {
-      return (
-        <audio
-          key={i}
-          ref={key.key}
-          src={key.sound}
-        />
-      );
+      return <audio key={i} ref={key.key} src={key.sound} />;
     });
   };
 
