@@ -1,46 +1,104 @@
 import React from 'react';
 import { inventors } from '../data/4_ArrayData';
-import styled from 'styled-components';
-import { Table } from 'semantic-ui-react';
+import { Dropdown, Table } from 'semantic-ui-react';
 
 class ArrayCardio extends React.Component {
+  state = { view: inventors };
+
+  handleCenturySelection = (e, { value }) => {
+    this.filterByCentury(value);
+  };
+
+  handleLocationSelection = (e, { value }) => {
+    this.filterByLocation(value);
+  };
+
+  centuryOptions = () => {
+    const years = inventors.map(i => i.year);
+    const centuries = [
+      ...new Set(years.map(y => y.toString().slice(0, 2) + '00'))
+    ];
+    return centuries.map((century, i) => {
+      return { key: i, text: century, value: century };
+    });
+  };
+
+  locationOptions = () => {
+    const locations = [...new Set(inventors.map(i => i.location))];
+    return locations.map((location, i) => {
+      return { key: i, text: location, value: location };
+    });
+  };
+
+  filterOptions = () => {
+    return (
+      <div>
+        <Dropdown
+          selection
+          placeholder="By Century"
+          options={this.centuryOptions()}
+          onChange={this.handleCenturySelection}
+        />
+        <Dropdown
+          selection
+          placeholder="By Location"
+          options={this.locationOptions()}
+          onChange={this.handleLocationSelection}
+        />
+      </div>
+    );
+  };
+
   generateHeaders = () => {
-    const headers = ['First', 'Last', 'Born', 'Passed'];
-    return headers.map(h => <Table.HeaderCell>{h}</Table.HeaderCell>);
+    const headers = ['First', 'Last', 'Location', 'Born', 'Passed'];
+    return headers.map((h, i) => (
+      <Table.HeaderCell key={i}>{h}</Table.HeaderCell>
+    ));
   };
 
   generateRows = () => {
-    return inventors.map( i => {
+    const { view } = this.state;
+    return view.map((inventor, i) => {
       return (
-        <Table.Row>
-          <Table.Cell>{i.first}</Table.Cell>
-          <Table.Cell>{i.last}</Table.Cell>
-          <Table.Cell>{i.year}</Table.Cell>
-          <Table.Cell>{i.passed}</Table.Cell>
+        <Table.Row key={i}>
+          <Table.Cell>{inventor.first}</Table.Cell>
+          <Table.Cell>{inventor.last}</Table.Cell>
+          <Table.Cell>{inventor.location}</Table.Cell>
+          <Table.Cell>{inventor.year}</Table.Cell>
+          <Table.Cell>{inventor.passed}</Table.Cell>
         </Table.Row>
       );
-    })
+    });
+  };
+
+  filterByCentury = value => {
+    const byCentury = inventors.filter(i => {
+      return i.year.toString().slice(0, 2) === value.slice(0, 2);
+    });
+    this.setState({ view: byCentury });
+  };
+
+  filterByLocation = value => {
+    const byLocation = inventors.filter(i => i.location === value);
+    this.setState({ view: byLocation });
   };
 
   render() {
     return (
-      <Table celled>
-        <Table.Header>
-          <Table.Row>{this.generateHeaders()}</Table.Row>
-        </Table.Header>
-        <Table.Body>{this.generateRows()}</Table.Body>
-      </Table>
+      <div>
+        {this.filterOptions()}
+        <Table celled>
+          <Table.Header>
+            <Table.Row>{this.generateHeaders()}</Table.Row>
+          </Table.Header>
+          <Table.Body>{this.generateRows()}</Table.Body>
+        </Table>
+      </div>
     );
   }
 }
 
 export default ArrayCardio;
-
-//     // Array.prototype.filter()
-//     // 1. Filter the list of inventors for those who were born in the 1500's
-
-//     // Array.prototype.map()
-//     // 2. Give us an array of the inventors' first and last names
 
 //     // Array.prototype.sort()
 //     // 3. Sort the inventors by birthdate, oldest to youngest
@@ -48,9 +106,6 @@ export default ArrayCardio;
 //     // Array.prototype.reduce()
 //     // 4. How many years did all the inventors live?
 //     // 5. Sort the inventors by years lived
-
-//     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-//     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
 //     // 7. sort Exercise
 //     // Sort the people alphabetically by last name
