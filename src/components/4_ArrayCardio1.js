@@ -1,16 +1,24 @@
 import React from 'react';
 import { inventors } from '../data/4_ArrayData';
+import styled from 'styled-components';
 import { Dropdown, Table } from 'semantic-ui-react';
+
+const Container = styled.div`
+  .filterOptions {
+    padding: 1%;
+  }
+  div {
+    padding: 0.5%;
+  }
+`;
 
 class ArrayCardio extends React.Component {
   state = { view: inventors };
 
-  handleCenturySelection = (e, { value }) => {
-    this.filterByCentury(value);
-  };
-
-  handleLocationSelection = (e, { value }) => {
-    this.filterByLocation(value);
+  handleSelection = (e, { value }) => {
+    isNaN(parseInt(value.charAt(0)))
+      ? this.filterByLocation(value)
+      : this.filterByCentury(value);
   };
 
   centuryOptions = () => {
@@ -32,19 +40,25 @@ class ArrayCardio extends React.Component {
 
   filterOptions = () => {
     return (
-      <div>
-        <Dropdown
-          selection
-          placeholder="By Century"
-          options={this.centuryOptions()}
-          onChange={this.handleCenturySelection}
-        />
-        <Dropdown
-          selection
-          placeholder="By Location"
-          options={this.locationOptions()}
-          onChange={this.handleLocationSelection}
-        />
+      <div className="filterOptions">
+        <div>
+          <strong>Filter by Century</strong> <br />
+          <Dropdown
+            selection
+            placeholder="By Century"
+            options={this.centuryOptions()}
+            onChange={this.handleSelection}
+          />
+        </div>
+        <div>
+          <strong>Filter by Location</strong> <br />
+          <Dropdown
+            selection
+            placeholder="By Location"
+            options={this.locationOptions()}
+            onChange={this.handleSelection}
+          />
+        </div>
       </div>
     );
   };
@@ -85,7 +99,7 @@ class ArrayCardio extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container>
         {this.filterOptions()}
         <Table celled>
           <Table.Header>
@@ -93,7 +107,7 @@ class ArrayCardio extends React.Component {
           </Table.Header>
           <Table.Body>{this.generateRows()}</Table.Body>
         </Table>
-      </div>
+      </Container>
     );
   }
 }
@@ -108,8 +122,7 @@ export default ArrayCardio;
 //     // 5. Sort the inventors by years lived
 
 //     // 7. sort Exercise
-//     // Sort the people alphabetically by last name
+//     // Sort the inventors alphabetically by last name
 
 //     // 8. Reduce Exercise
-//     // Sum up the instances of each of these
-//     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+//     // Sum up the instances of...
