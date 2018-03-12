@@ -9,6 +9,10 @@ const calendaData = [
   {
     link: '/drums',
     image: drums
+  },
+  {
+    link: '/css_variables',
+    image: ''
   }
 ];
 

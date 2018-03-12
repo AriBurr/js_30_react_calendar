@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Calendar from './components/Calendar';
 import Clock from './components/2_Clock';
+import CSSVariables from './components/3_CSSVariables';
 import Drums from './components/1_Drums';
 import { injectGlobal } from 'styled-components';
 
@@ -21,6 +22,7 @@ class App extends Component {
         <Route exact path="/" component={Calendar} />
         <Route exact path="/clock" component={Clock} />
         <Route exact path="/drums" component={Drums} />
+        <Route exact path="/css_variables" component={CSSVariables} />
       </Switch>
     );
   }
