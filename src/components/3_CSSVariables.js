@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from './Navigation';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -40,6 +41,7 @@ class CSSVariables extends React.Component {
   render() {
     return (
       <Container>
+        <Navigation />
         <h2>
           Update CSS Variables with <span className="hl">React JS</span>
         </h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Navigation from './Navigation';
 import keys from '../data/1_Drums_data';
 import styled from 'styled-components';
 
@@ -8,6 +9,7 @@ const Container = styled.div`
   background-size: cover;
   margin: 0;
   padding: 0;
+  height: 100vh;
 
   .keys {
     display: flex;
@@ -101,6 +103,7 @@ class Drums extends React.Component {
   render() {
     return (
       <Container>
+        <Navigation />
         <div className="keys">
           {this.createKeys()}
           {this.createAudio()}

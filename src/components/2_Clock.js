@@ -1,14 +1,13 @@
 import React from 'react';
+import Navigation from './Navigation';
 import styled from 'styled-components';
 
 const Container = styled.div`
   background: #018ded url(http://unsplash.it/1500/1000?image=881&blur=50);
   background-size: cover;
   font-family: 'helvetica neue';
-  text-align: center;
   font-size: 10px;
   height: 100vh;
-  padding-top: 100px;
 
   body {
     margin: 0;
@@ -27,9 +26,8 @@ const Container = styled.div`
     border: 20px solid white;
     border-radius: 50%;
     margin: 0 auto;
-    padding-top: 50px;
+    margin-top: 10em;
     position: relative;
-    padding: 2rem;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
       inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
   }
@@ -95,6 +93,7 @@ class Clock extends React.Component {
   render() {
     return (
       <Container>
+        <Navigation />
         <div className="clock">
           <div className="clock-face">
             <div ref="hourHand" className="hand hour-hand" />

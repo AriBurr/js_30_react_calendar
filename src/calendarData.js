@@ -1,4 +1,5 @@
 import clock from './images/clock.png';
+import css from './images/css_variables.png';
 import drums from './images/drums.png';
 
 const calendaData = [
@@ -12,7 +13,7 @@ const calendaData = [
   },
   {
     link: '/css_variables',
-    image: ''
+    image: css
   }
 ];
 
