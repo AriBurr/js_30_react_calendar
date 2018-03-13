@@ -1,6 +1,7 @@
 import clock from './images/clock.png';
 import css from './images/css_variables.png';
 import drums from './images/drums.png';
+import array_cardio_1 from './images/array_cardio_1.png'
 
 const calendaData = [
   {
@@ -17,7 +18,7 @@ const calendaData = [
   },
   {
     link: '/array_cardio_1',
-    image: ''
+    image: array_cardio_1
   }
 ];
 
