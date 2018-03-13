@@ -1,16 +1,16 @@
 import React from 'react';
-import Navigation from './Navigation';
 import { inventors } from '../data/4_ArrayData';
 import styled from 'styled-components';
 import { Button, Dropdown, Grid, Icon, Table } from 'semantic-ui-react';
 
 const Container = styled.div`
+  padding: 1%;
+  
   .filter-options {
     padding: 1%;
   }
   .header {
     background-color: #F9F7F3;
-    border-radius: 75%;
     line-heght: .25em;
     padding: 5%;
   }
@@ -163,7 +163,6 @@ class ArrayCardio extends React.Component {
   render() {
     return (
       <Container>
-        <Navigation />
         <Grid>
           <Grid.Column width={5}>
             {this.filterOptions()}

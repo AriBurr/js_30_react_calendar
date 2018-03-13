@@ -5,6 +5,7 @@ import Calendar from './components/Calendar';
 import Clock from './components/2_Clock';
 import CSSVariables from './components/3_CSSVariables';
 import Drums from './components/1_Drums';
+import Navigation from './components/Navigation';
 import { injectGlobal } from 'styled-components';
 
 injectGlobal`
@@ -19,13 +20,16 @@ injectGlobal`
 class App extends Component {
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={Calendar} />
-        <Route exact path="/clock" component={Clock} />
-        <Route exact path="/drums" component={Drums} />
-        <Route exact path="/css_variables" component={CSSVariables} />
-        <Route exact path="/array_cardio_1" component={ArrayCardio1} />
-      </Switch>
+      <div>
+        <Navigation />
+        <Switch>
+          <Route exact path="/" component={Calendar} />
+          <Route exact path="/clock" component={Clock} />
+          <Route exact path="/drums" component={Drums} />
+          <Route exact path="/css_variables" component={CSSVariables} />
+          <Route exact path="/array_cardio_1" component={ArrayCardio1} />
+        </Switch>
+      </div>
     );
   }
 }

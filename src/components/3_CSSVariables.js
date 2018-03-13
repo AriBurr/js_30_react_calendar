@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from './Navigation';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -10,6 +9,7 @@ const Container = styled.div`
   font-weight: 100;
   font-size: 50px;
   height: 100vh;
+  padding: 1%;
 
   .controls {
     margin-bottom: 50px;
@@ -41,7 +41,6 @@ class CSSVariables extends React.Component {
   render() {
     return (
       <Container>
-        <Navigation />
         <h2>
           Update CSS Variables with <span className="hl">React JS</span>
         </h2>

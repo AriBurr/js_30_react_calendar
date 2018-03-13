@@ -1,9 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import { Icon } from 'semantic-ui-react';
 
 const Container = styled.div`
+  margin: 0;
+  padding: 0;
+
   h1 {
     color: white;
     cursor: pointer;
@@ -21,10 +23,7 @@ const Navigation = ({ history }) => {
 
   return (
     <Container>
-      <h1 onClick={() => returnHome()}>
-        <Icon name="arrow left" size="small" />
-        Back
-      </h1>
+      <h1 onClick={() => returnHome()}>Home</h1>
     </Container>
   );
 };

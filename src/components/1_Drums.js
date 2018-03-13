@@ -1,5 +1,4 @@
 import React from 'react';
-import Navigation from './Navigation';
 import keys from '../data/1_DrumsData';
 import styled from 'styled-components';
 
@@ -103,7 +102,6 @@ class Drums extends React.Component {
   render() {
     return (
       <Container>
-        <Navigation />
         <div className="keys">
           {this.createKeys()}
           {this.createAudio()}
