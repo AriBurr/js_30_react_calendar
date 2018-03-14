@@ -3,6 +3,7 @@ import clock from './images/clock.png';
 import css from './images/css_variables.png';
 import drums from './images/drums.png';
 import flex from './images/flex.png';
+import type_ahead from './images/type_ahead.png';
 
 const calendaData = [
   {
@@ -27,7 +28,7 @@ const calendaData = [
   },
   {
     link: '/type_ahead',
-    image: ''
+    image: type_ahead
   }
 ];
 
