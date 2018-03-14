@@ -1,35 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  text-align: center;
-  background: #193549;
-  color: white;
-  font-family: 'helvetica neue', sans-serif;
-  font-weight: 100;
-  font-size: 50px;
-  height: 100vh;
-  padding: 1%;
-
-  .controls {
-    margin-bottom: 50px;
-  }
-
-  input {
-    width: 100px;
-  }
-
-  img {
-    padding: ${props => props.children[0]._self.state.spacing}px;
-    background: ${props => props.children[0]._self.state.base};
-    filter: blur(${props => props.children[0]._self.state.blur}px);
-  }
-
-  .hl {
-    color: ${props => props.children[0]._self.state.base};
-  }
-`;
-
 class CSSVariables extends React.Component {
   state = { spacing: '10', blur: '10', base: '#ffc600' };
 
@@ -84,5 +55,34 @@ class CSSVariables extends React.Component {
     );
   }
 }
+
+const Container = styled.div`
+  text-align: center;
+  background: #193549;
+  color: white;
+  font-family: 'helvetica neue', sans-serif;
+  font-weight: 100;
+  font-size: 50px;
+  height: 100vh;
+  padding: 1%;
+
+  .controls {
+    margin-bottom: 50px;
+  }
+
+  input {
+    width: 100px;
+  }
+
+  img {
+    padding: ${props => props.children[0]._self.state.spacing}px;
+    background: ${props => props.children[0]._self.state.base};
+    filter: blur(${props => props.children[0]._self.state.blur}px);
+  }
+
+  .hl {
+    color: ${props => props.children[0]._self.state.base};
+  }
+`;
 
 export default CSSVariables;

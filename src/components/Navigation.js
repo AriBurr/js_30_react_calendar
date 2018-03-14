@@ -2,6 +2,18 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
+const Navigation = ({ history }) => {
+  const returnHome = () => {
+    history.push('/');
+  };
+
+  return (
+    <Container>
+      <h1 onClick={() => returnHome()}>Home</h1>
+    </Container>
+  );
+};
+
 const Container = styled.div`
   margin: 0;
   padding: 0;
@@ -15,17 +27,5 @@ const Container = styled.div`
     text-align: left;
   }
 `;
-
-const Navigation = ({ history }) => {
-  const returnHome = () => {
-    history.push('/');
-  };
-
-  return (
-    <Container>
-      <h1 onClick={() => returnHome()}>Home</h1>
-    </Container>
-  );
-};
 
 export default withRouter(Navigation);

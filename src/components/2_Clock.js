@@ -1,57 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  background: #018ded url(http://unsplash.it/1500/1000?image=881&blur=50);
-  background-size: cover;
-  font-family: 'helvetica neue';
-  font-size: 10px;
-  height: 100vh;
-  padding: 100px;
-
-  body {
-    margin: 0;
-    font-size: 2rem;
-    display: flex;
-    flex: 1;
-    min-height: 100vh;
-    align-items: center;
-  }
-
-  .clock {
-    background: #018ded;
-    background-size: cover;
-    width: 30rem;
-    height: 30rem;
-    border: 20px solid white;
-    border-radius: 50%;
-    margin: 0 auto;
-    margin-top: 5em;
-    position: relative;
-    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
-      inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .clock-face {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform: translateY(-3px);
-  }
-
-  .hand {
-    width: 50%;
-    height: 6px;
-    background: black;
-    position: absolute;
-    top: 50%;
-    transform-origin: 100%;
-    transform: rotate(90deg);
-    transition: all 0.05s;
-    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-  }
-`;
-
 class Clock extends React.Component {
   componentDidMount() {
     const intervalID = setInterval(this.setDate, 1000);
@@ -104,5 +53,56 @@ class Clock extends React.Component {
     );
   }
 }
+
+const Container = styled.div`
+  background: #018ded url(http://unsplash.it/1500/1000?image=881&blur=50);
+  background-size: cover;
+  font-family: 'helvetica neue';
+  font-size: 10px;
+  height: 100vh;
+  padding: 100px;
+
+  body {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    align-items: center;
+  }
+
+  .clock {
+    background: #018ded;
+    background-size: cover;
+    width: 30rem;
+    height: 30rem;
+    border: 20px solid white;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 5em;
+    position: relative;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+      inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px);
+  }
+
+  .hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
+`;
 
 export default Clock;

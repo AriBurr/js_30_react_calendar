@@ -3,22 +3,6 @@ import { inventors } from '../data/4_ArrayData';
 import styled from 'styled-components';
 import { Button, Dropdown, Grid, Icon, Table } from 'semantic-ui-react';
 
-const Container = styled.div`
-  padding: 1%;
-  
-  .filter-options {
-    padding: 1%;
-  }
-  .header {
-    background-color: #F9F7F3;
-    line-heght: .25em;
-    padding: 5%;
-  }
-  i.icon {
-    cursor: pointer;
-  }
-`;
-
 class ArrayCardio extends React.Component {
   state = { view: inventors, dateAsc: true, nameAsc: true };
 
@@ -194,5 +178,21 @@ class ArrayCardio extends React.Component {
     );
   }
 }
+
+const Container = styled.div`
+  padding: 1%;
+
+  .filter-options {
+    padding: 1%;
+  }
+  .header {
+    background-color: #F9F7F3;
+    line-heght: .25em;
+    padding: 5%;
+  }
+  i.icon {
+    cursor: pointer;
+  }
+`;
 
 export default ArrayCardio;

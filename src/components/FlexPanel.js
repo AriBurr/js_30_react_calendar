@@ -1,6 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const toggleOpen = e => {
+  const element = e.currentTarget;
+  element.classList.toggle('open');
+};
+
+const toggleActive = e => {
+  const element = e.currentTarget;
+  if (e.propertyName.includes('flex')) element.classList.toggle('open-active');
+};
+
+const renderPanels = () => {
+  return [
+    { first: 'Hey', second: 'Just', third: 'Dance' },
+    { first: 'Give', second: 'Take', third: 'Receive' },
+    { first: 'Experience', second: 'It', third: 'Today' },
+    { first: 'Give', second: 'All', third: 'You can' },
+    { first: 'Life', second: 'In', third: 'Motion' }
+  ].map((panel, i) => {
+    return (
+      <div
+        key={i}
+        className={`panel panel${i + 1}`}
+        onClick={toggleOpen}
+        onTransitionEnd={toggleActive}
+      >
+        <p>{panel.first}</p>
+        <p>{panel.second}</p>
+        <p>{panel.third}</p>
+      </div>
+    );
+  });
+};
+
+const FlexPanel = () => (
+  <Container>
+    <div className="panels">{renderPanels()}</div>
+  </Container>
+);
+
 const Container = styled.div`
   html {
     box-sizing: border-box;
@@ -90,44 +129,5 @@ const Container = styled.div`
     font-size: 40px;
   }
 `;
-
-const toggleOpen = e => {
-  const element = e.currentTarget;
-  element.classList.toggle('open');
-};
-
-const toggleActive = e => {
-  const element = e.currentTarget;
-  if (e.propertyName.includes('flex')) element.classList.toggle('open-active');
-};
-
-const renderPanels = () => {
-  return [
-    { first: 'Hey', second: 'Just', third: 'Dance' },
-    { first: 'Give', second: 'Take', third: 'Receive' },
-    { first: 'Experience', second: 'It', third: 'Today' },
-    { first: 'Give', second: 'All', third: 'You can' },
-    { first: 'Life', second: 'In', third: 'Motion' }
-  ].map((panel, i) => {
-    return (
-      <div
-        key={i}
-        className={`panel panel${i + 1}`}
-        onClick={toggleOpen}
-        onTransitionEnd={toggleActive}
-      >
-        <p>{panel.first}</p>
-        <p>{panel.second}</p>
-        <p>{panel.third}</p>
-      </div>
-    );
-  });
-};
-
-const FlexPanel = () => (
-  <Container>
-    <div className="panels">{renderPanels()}</div>
-  </Container>
-);
 
 export default FlexPanel;

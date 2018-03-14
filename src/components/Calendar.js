@@ -4,7 +4,23 @@ import calendarData from '../calendarData';
 import styled from 'styled-components';
 import { Image } from 'semantic-ui-react';
 
-const PageWrapper = styled.div`
+const Calendar = () => {
+  const generateCalendar = () => {
+    return calendarData.map((day, i) => {
+      return <Image as={Link} src={day.image} to={day.link} key={i} />;
+    });
+  };
+
+  return (
+    <Container>
+      <h1>React</h1>
+      <h3>Javascript 30 Challenge</h3>
+      <div className="calendarStyle">{generateCalendar()}</div>
+    </Container>
+  );
+};
+
+const Container = styled.div`
   .calendarStyle {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -27,21 +43,5 @@ const PageWrapper = styled.div`
     text-align: center;
   }
 `;
-
-const Calendar = () => {
-  const generateCalendar = () => {
-    return calendarData.map((day, i) => {
-      return <Image as={Link} src={day.image} to={day.link} key={i} />;
-    });
-  };
-
-  return (
-    <PageWrapper>
-      <h1>React</h1>
-      <h3>Javascript 30 Challenge</h3>
-      <div className="calendarStyle">{generateCalendar()}</div>
-    </PageWrapper>
-  );
-};
 
 export default Calendar;
