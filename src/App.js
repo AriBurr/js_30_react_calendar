@@ -5,6 +5,7 @@ import Calendar from './components/Calendar';
 import Clock from './components/2_Clock';
 import CSSVariables from './components/3_CSSVariables';
 import Drums from './components/1_Drums';
+import FlexPanel from './components/FlexPanel';
 import Navigation from './components/Navigation';
 import { injectGlobal } from 'styled-components';
 
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path="/drums" component={Drums} />
           <Route exact path="/css_variables" component={CSSVariables} />
           <Route exact path="/array_cardio_1" component={ArrayCardio1} />
+          <Route exact path="/flex" component={FlexPanel} />
         </Switch>
       </div>
     );
