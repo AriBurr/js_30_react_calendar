@@ -2,16 +2,69 @@ import React from 'react';
 import styled from 'styled-components';
 
 class TypeAhead extends React.Component {
-  render() {
+  state = { cities: [], matches: [], matchLoaded: false, search: '' };
+
+  componentDidMount() {
+    const { cities } = this.state;
     const endpoint =
       'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+    fetch(endpoint)
+      .then(blob => blob.json())
+      .then(data => cities.push(...data));
+  }
+
+  handleChange = e => {
+    const { cities } = this.state;
+    const matchArray = this.findMatches(e.target.value, cities);
+    this.setState({ search: e.target.value });
+    this.setState({ matches: matchArray });
+    this.setState({ matchLoaded: true });
+  };
+
+  findMatches = (wordToMatch, cities) => {
+    return cities.filter(place => {
+      const regex = new RegExp(wordToMatch, 'gi');
+      return place.city.match(regex) || place.state.match(regex);
+    });
+  };
+
+  numberWithCommas = x => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  displayMatches = matchArray => {
+    const { search } = this.state;
+    return matchArray.map((place, i) => {
+      const regex = new RegExp(search, 'gi');
+      return (
+        <li key={i}>
+          <span className="name">
+            <span className="hl">{place.city.replace(regex, search)}</span>,&nbsp;
+            <span className="hl">{place.state.replace(regex, search)}</span>
+          </span>
+          <span className="population">
+            {this.numberWithCommas(place.population)}
+          </span>
+        </li>
+      );
+    });
+  };
+
+  render() {
+    const { matches, matchLoaded } = this.state;
     return (
       <Container>
         <form className="search-form">
-          <input type="text" className="search" placeholder="City or State" />
+          <input
+            type="text"
+            className="search"
+            placeholder="City or State"
+            onChange={this.handleChange}
+          />
           <ul className="suggestions">
             <li>Filter for a city</li>
             <li>or a state</li>
+            {matchLoaded && this.displayMatches(matches)}
           </ul>
         </form>;
       </Container>
@@ -26,13 +79,15 @@ const Container = styled.div`
   font-size: 20px;
   font-weight: 200;
   height: 100vh;
-  padding: 5%;
-  
+  padding: 1%;
+  overflow: auto;
+
   *,
   *:before,
   *:after {
     box-sizing: inherit;
   }
+
   input {
     width: 100%;
     padding: 20px;
@@ -64,6 +119,7 @@ const Container = styled.div`
     position: relative;
     /*perspective:20px;*/
   }
+
   .suggestions li {
     background: white;
     list-style: none;
@@ -81,6 +137,7 @@ const Container = styled.div`
     transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
     background: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
   }
+
   .suggestions li:nth-child(odd) {
     transform: perspective(100px) rotateX(-3deg) translateY(3px);
     background: linear-gradient(to top, #ffffff 0%, #efefef 100%);
