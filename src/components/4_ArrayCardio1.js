@@ -91,28 +91,6 @@ class ArrayCardio extends React.Component {
     );
   };
 
-  generateHeaders = () => {
-    const headers = ['First', 'Last', 'Location', 'Born', 'Passed'];
-    return headers.map((h, i) => (
-      <Table.HeaderCell key={i}>{h}</Table.HeaderCell>
-    ));
-  };
-
-  generateRows = () => {
-    const { view } = this.state;
-    return view.map((inventor, i) => {
-      return (
-        <Table.Row key={i}>
-          <Table.Cell>{inventor.first}</Table.Cell>
-          <Table.Cell>{inventor.last}</Table.Cell>
-          <Table.Cell>{inventor.location}</Table.Cell>
-          <Table.Cell>{inventor.year}</Table.Cell>
-          <Table.Cell>{inventor.passed}</Table.Cell>
-        </Table.Row>
-      );
-    });
-  };
-
   filterByCentury = value => {
     const byCentury = inventors.filter(i => {
       return i.year.toString().slice(0, 2) === value.slice(0, 2);
@@ -144,6 +122,28 @@ class ArrayCardio extends React.Component {
       });
   };
 
+  generateHeaders = () => {
+    const headers = ['First', 'Last', 'Location', 'Born', 'Passed'];
+    return headers.map((h, i) => (
+      <Table.HeaderCell key={i}>{h}</Table.HeaderCell>
+    ));
+  };
+
+  generateRows = () => {
+    const { view } = this.state;
+    return view.map((inventor, i) => {
+      return (
+        <Table.Row key={i}>
+          <Table.Cell>{inventor.first}</Table.Cell>
+          <Table.Cell>{inventor.last}</Table.Cell>
+          <Table.Cell>{inventor.location}</Table.Cell>
+          <Table.Cell>{inventor.year}</Table.Cell>
+          <Table.Cell>{inventor.passed}</Table.Cell>
+        </Table.Row>
+      );
+    });
+  };
+
   render() {
     return (
       <Container>
@@ -161,8 +161,8 @@ class ArrayCardio extends React.Component {
             <h3>No. of Scientists by Country</h3>
             {this.countLocations()}
           </Grid.Column>
-          <Grid.Column width={6} textAlign='center'>
-            <div className='header'>
+          <Grid.Column width={6} textAlign="center">
+            <div className="header">
               <h1>Filter, Map, and Reduce</h1>
               <h3>with React JS</h3>
             </div>
@@ -186,8 +186,8 @@ const Container = styled.div`
     padding: 1%;
   }
   .header {
-    background-color: #F9F7F3;
-    line-heght: .25em;
+    background-color: #f9f7f3;
+    line-heght: 0.25em;
     padding: 5%;
   }
   i.icon {

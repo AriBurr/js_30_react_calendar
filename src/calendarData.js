@@ -5,31 +5,41 @@ import drums from './images/drums.png';
 import flex from './images/flex.png';
 import type_ahead from './images/type_ahead.png';
 
-const calendaData = [
+export const calendarData = [
   {
-    link: '/clock',
-    image: clock
+    path: '/drums',
+    image: drums,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/1_Drums.js'
   },
   {
-    link: '/drums',
-    image: drums
+    path: '/clock',
+    image: clock,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/2_Clock.js'
   },
   {
-    link: '/css_variables',
-    image: css
+    path: '/css_variables',
+    image: css,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/3_CSSVariables.js'
   },
   {
-    link: '/array_cardio_1',
-    image: array_cardio_1
+    path: '/array_cardio_1',
+    image: array_cardio_1,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/4_ArrayCardio1.js'
   },
   {
-    link: '/flex',
-    image: flex
+    path: '/flex',
+    image: flex,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/FlexPanel.js'
   },
   {
-    link: '/type_ahead',
-    image: type_ahead
+    path: '/type_ahead',
+    image: type_ahead,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/TypeAhead.js'
   }
 ];
-
-export default calendaData;

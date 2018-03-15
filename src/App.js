@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import ArrayCardio1 from './components/4_ArrayCardio1';
 import Calendar from './components/Calendar';
+import Drums from './components/1_Drums';
 import Clock from './components/2_Clock';
 import CSSVariables from './components/3_CSSVariables';
-import Drums from './components/1_Drums';
-import FlexPanel from './components/FlexPanel';
+import ArrayCardio1 from './components/4_ArrayCardio1';
+import FlexPanel from './components/5_FlexPanel';
 import Navigation from './components/Navigation';
-import TypeAhead from './components/TypeAhead';
+import TypeAhead from './components/6_TypeAhead';
 import { injectGlobal } from 'styled-components';
 
 injectGlobal`

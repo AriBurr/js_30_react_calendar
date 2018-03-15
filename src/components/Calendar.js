@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import calendarData from '../calendarData';
+import { calendarData } from '../calendarData';
 import styled from 'styled-components';
 import { Image } from 'semantic-ui-react';
 
 const Calendar = () => {
   const generateCalendar = () => {
     return calendarData.map((day, i) => {
-      return <Image as={Link} src={day.image} to={day.link} key={i} />;
+      return <Image as={Link} src={day.image} to={day.path} key={i} />;
     });
   };
 
