@@ -6,8 +6,9 @@ import Clock from './components/2_Clock';
 import CSSVariables from './components/3_CSSVariables';
 import ArrayCardio1 from './components/4_ArrayCardio1';
 import FlexPanel from './components/5_FlexPanel';
-import Navigation from './components/Navigation';
 import TypeAhead from './components/6_TypeAhead';
+import ArrayCardio2 from './components/7_ArrayCardio2';
+import Navigation from './components/Navigation';
 import { injectGlobal } from 'styled-components';
 
 injectGlobal`
@@ -27,6 +28,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Calendar} />
           <Route exact path="/array_cardio_1" component={ArrayCardio1} />
+          <Route exact path="/array_cardio_2" component={ArrayCardio2} />
           <Route exact path="/clock" component={Clock} />
           <Route exact path="/css_variables" component={CSSVariables} />
           <Route exact path="/drums" component={Drums} />

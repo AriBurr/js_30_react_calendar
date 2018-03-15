@@ -1,5 +1,5 @@
 import React from 'react';
-import { inventors } from '../data/4_ArrayData';
+import { inventors } from '../data/arrayData';
 import styled from 'styled-components';
 import { Button, Dropdown, Grid, Icon, Table } from 'semantic-ui-react';
 

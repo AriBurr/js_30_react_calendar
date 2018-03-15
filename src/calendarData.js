@@ -41,5 +41,11 @@ export const calendarData = [
     image: type_ahead,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/6_TypeAhead.js'
+  },
+  {
+    path: '/array_cardio_2',
+    image: array_cardio_2,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/7_ArrayCardio2.js'
   }
 ];

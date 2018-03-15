@@ -1,5 +1,5 @@
 import React from 'react';
-import keys from '../data/1_DrumsData';
+import keys from '../data/drumsData';
 import styled from 'styled-components';
 
 class Drums extends React.Component {
