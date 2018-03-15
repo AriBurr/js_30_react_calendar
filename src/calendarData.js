@@ -34,12 +34,12 @@ export const calendarData = [
     path: '/flex',
     image: flex,
     link:
-      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/FlexPanel.js'
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/5_FlexPanel.js'
   },
   {
     path: '/type_ahead',
     image: type_ahead,
     link:
-      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/TypeAhead.js'
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/6_TypeAhead.js'
   }
 ];
