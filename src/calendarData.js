@@ -1,4 +1,5 @@
 import array_cardio_1 from './images/array_cardio_1.png';
+import array_cardio_2 from './images/array_cardio_2.png';
 import clock from './images/clock.png';
 import css from './images/css_variables.png';
 import drums from './images/drums.png';
