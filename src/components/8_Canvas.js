@@ -33,7 +33,7 @@ class Canvas extends React.Component {
       lastY: e.clientY
     });
     direction ? ctx.lineWidth++ : ctx.lineWidth--;
-    if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1)
+    if (ctx.lineWidth >= 75 || ctx.lineWidth <= 1)
       this.setState({ direction: !direction });
   };
 
