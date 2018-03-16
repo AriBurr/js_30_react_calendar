@@ -48,5 +48,11 @@ export const calendarData = [
     image: array_cardio_2,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/7_ArrayCardio2.js'
+  },
+  {
+    path: '/canvas',
+    image: '',
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/7_ArrayCardio2.js'
   }
 ];
