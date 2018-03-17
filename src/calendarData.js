@@ -69,5 +69,11 @@ export const calendarData = [
     image: checkboxes,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/10_Checkbox.js'
+  },
+  {
+    path: '/video_player',
+    image: '',
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/11_VideoPlayer.js'
   }
 ];
