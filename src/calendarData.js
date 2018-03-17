@@ -1,6 +1,7 @@
 import array_cardio_1 from './images/array_cardio_1.png';
 import array_cardio_2 from './images/array_cardio_2.png';
 import canvas from './images/canvas.png';
+import checkboxes from './images/checkboxes.png';
 import clock from './images/clock.png';
 import css from './images/css_variables.png';
 import drums from './images/drums.png';
@@ -58,8 +59,8 @@ export const calendarData = [
   },
   {
     path: '/checkbox',
-    image: '',
+    image: checkboxes,
     link:
-      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/8_Canvas.js'
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/10_Checkbox.js'
   }
 ];
