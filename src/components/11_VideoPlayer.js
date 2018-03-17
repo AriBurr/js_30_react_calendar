@@ -13,19 +13,48 @@ class VideoPlayer extends React.Component {
       video: video,
       progress: progress,
       progressBar: progressBar,
-      toggle: toggle
+      toggle: toggle,
+      mousedown: false
     });
   }
 
-  togglePlay = () => {};
-  updateButton = () => {};
-  handleProgress = () => {};
-  skip = () => {};
-  handleRangeUpdate = () => {};
-  scrub = () => {};
+  togglePlay = () => {
+    const { video } = this.state;
+    const method = video.paused ? 'play' : 'pause';
+    video[method]();
+  };
+
+  updateButton = e => {
+    const { toggle } = this.state;
+    const icon = e.target.paused ? '►' : '❚ ❚';
+    toggle.textContent = icon;
+  };
+
+  handleProgress = e => {
+    const { video } = this.state;
+    video.currentTime += parseFloat(e.target.dataset.skip);
+  };
+
+  skip = e => {
+    const { video } = this.state;
+    video[e.target.name] = e.target.value;
+  };
+
+  handleRangeUpdate = e => {
+    const { video } = this.state;
+    video[e.target.name] = e.target.value;
+  };
+
+  scrub = e => {
+    const { progress, video } = this.state;
+    const scrubTime = e.clientX / progress.clientWidth * video.duration;
+    video.currentTime = scrubTime;
+  };
+
+  onMouseDown = () => this.setState({ mousedown: true })
+  onMouseUp = () => this.setState({ mousedown: false })
 
   render() {
-    let mousedown = false;
     return (
       <div className="container">
         <div
@@ -40,9 +69,9 @@ class VideoPlayer extends React.Component {
             <div
               className="progress"
               onClick={this.scrub}
-              onMouseMove={mousedown && this.scrub}
-              onMouseDown={(mousedown = true)}
-              onMouseUp={(mousedown = false)}
+              onMouseMove={this.state.mousedown && this.scrub}
+              onMouseDown={this.setMouseDown}
+              onMouseUp={this.setMouseUp}
             >
               <div className="progress__filled" />
             </div>
