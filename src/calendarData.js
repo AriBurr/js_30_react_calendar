@@ -55,5 +55,11 @@ export const calendarData = [
     image: canvas,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/8_Canvas.js'
+  },
+  {
+    path: '/checkbox',
+    image: '',
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/8_Canvas.js'
   }
 ];

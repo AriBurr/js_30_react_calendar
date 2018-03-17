@@ -9,6 +9,7 @@ import FlexPanel from './components/5_FlexPanel';
 import TypeAhead from './components/6_TypeAhead';
 import ArrayCardio2 from './components/7_ArrayCardio2';
 import Canvas from './components/8_Canvas';
+import Checkbox from './components/10_Checkbox';
 import Navigation from './components/Navigation';
 import { injectGlobal } from 'styled-components';
 
@@ -31,6 +32,7 @@ class App extends Component {
           <Route exact path="/array_cardio_1" component={ArrayCardio1} />
           <Route exact path="/array_cardio_2" component={ArrayCardio2} />
           <Route exact path="/canvas" component={Canvas} />
+          <Route exact path="/checkbox" component={Checkbox} />
           <Route exact path="/clock" component={Clock} />
           <Route exact path="/css_variables" component={CSSVariables} />
           <Route exact path="/drums" component={Drums} />
