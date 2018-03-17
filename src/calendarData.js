@@ -4,6 +4,7 @@ import canvas from './images/canvas.png';
 import checkboxes from './images/checkboxes.png';
 import clock from './images/clock.png';
 import css from './images/css_variables.png';
+import dev from './images/dev.png';
 import drums from './images/drums.png';
 import flex from './images/flex.png';
 import type_ahead from './images/type_ahead.png';
@@ -56,6 +57,12 @@ export const calendarData = [
     image: canvas,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/8_Canvas.js'
+  },
+  {
+    path: '/dev',
+    image: dev,
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/9_DevTools.js'
   },
   {
     path: '/checkbox',

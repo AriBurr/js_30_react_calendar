@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Calendar from './components/Calendar';
+import DevTools from './components/9_DevTools';
 import Drums from './components/1_Drums';
 import Clock from './components/2_Clock';
 import CSSVariables from './components/3_CSSVariables';
@@ -35,6 +36,7 @@ class App extends Component {
           <Route exact path="/checkbox" component={Checkbox} />
           <Route exact path="/clock" component={Clock} />
           <Route exact path="/css_variables" component={CSSVariables} />
+          <Route exact path="/dev" component={DevTools} />
           <Route exact path="/drums" component={Drums} />
           <Route exact path="/flex" component={FlexPanel} />
           <Route exact path="/type_ahead" component={TypeAhead} />
