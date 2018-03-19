@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/videoPlayer.css';
 
 class VideoPlayer extends React.Component {
+  state = { mousedown: false }
   componentDidMount() {
     const player = document.querySelector('.player');
     const video = player.querySelector('.viewer');
@@ -14,7 +15,6 @@ class VideoPlayer extends React.Component {
       progress: progress,
       progressBar: progressBar,
       toggle: toggle,
-      mousedown: false
     });
   }
 
@@ -31,13 +31,14 @@ class VideoPlayer extends React.Component {
   };
 
   handleProgress = e => {
-    const { video } = this.state;
-    video.currentTime += parseFloat(e.target.dataset.skip);
+    const { progressBar, video } = this.state;
+    const percent = (video.currentTime / video.duration) * 100;
+    progressBar.style.flexBasis = `${percent}%`;
   };
 
   skip = e => {
     const { video } = this.state;
-    video[e.target.name] = e.target.value;
+    video.currentTime += parseFloat(e.target.dataset.skip);
   };
 
   handleRangeUpdate = e => {
@@ -49,12 +50,14 @@ class VideoPlayer extends React.Component {
     const { progress, video } = this.state;
     const scrubTime = e.clientX / progress.clientWidth * video.duration;
     video.currentTime = scrubTime;
+    debugger
   };
 
   onMouseDown = () => this.setState({ mousedown: true })
   onMouseUp = () => this.setState({ mousedown: false })
 
   render() {
+    const { mousedown } = this.state;
     return (
       <div className="container">
         <div
@@ -69,7 +72,7 @@ class VideoPlayer extends React.Component {
             <div
               className="progress"
               onClick={this.scrub}
-              onMouseMove={this.state.mousedown && this.scrub}
+              onMouseMove={mousedown ? this.scrub : undefined}
               onMouseDown={this.setMouseDown}
               onMouseUp={this.setMouseUp}
             >
@@ -109,14 +112,14 @@ class VideoPlayer extends React.Component {
               data-skip="-10"
               className="player__button"
             >
-              « '10s'
+              « 10 s
             </button>
             <button
               onClick={this.skip}
               data-skip="25"
               className="player__button"
             >
-              '25s' »
+              25 s »
             </button>
           </div>
         </div>;
