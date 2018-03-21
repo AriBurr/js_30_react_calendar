@@ -87,5 +87,17 @@ export const calendarData = [
     image: '',
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/13_Slide.js'
+  },
+  {
+    path: '/references',
+    image: '',
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/14_JSReferences.js'
+  },
+  {
+    path: '/local_storage',
+    image: '',
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/15_LocalStorage.js'
   }
 ];

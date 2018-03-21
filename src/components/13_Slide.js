@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import '../styles/slide.css';
 
 class Slide extends React.Component {
@@ -8,7 +7,7 @@ class Slide extends React.Component {
       <div className='container'>
         <div className='site-wrap'>
           <h1>Slide in on Scroll</h1>
-          <img src='' className='align-left slide-in' />
+          <img src='' className='align-left slide-in' alt='placeholder' />
           <p>
             Consectetur adipisicing elit. Tempore tempora rerum, est autem
             cupiditate, corporis a qui libero ipsum delectus quidem dolor at
@@ -16,14 +15,14 @@ class Slide extends React.Component {
             quod quas laborum nam! Fuga ad tempora in aspernatur pariaturlores
             sunt esse magni, ut, dignissimos.
           </p>
-          <img src='' className='align-right slide-in' />
+          <img src='' className='align-right slide-in' alt='placeholder' />
           <p>
             Lorem ipsum cupiditate, corporis a qui libero ipsum delectus quidem
             dolor at nulla, adipisci veniam in reiciendis aut asperiores omnis
             blanditiis quod quas laborum nam! Fuga ad tempora in aspernatur
             pariatur fugit quibusdam dolores sunt esse magni, ut, dignissimos.
           </p>
-          <img src='' className='align-left slide-in' />
+          <img src='' className='align-left slide-in' alt='placeholder' />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
             tempora rerum, est autem cupiditate, corporis a qui libero ipsum
@@ -32,7 +31,7 @@ class Slide extends React.Component {
             in aspernatur pariatur fugit quibusdam dolores sunt esse magni, ut,
             dignissimos.
           </p>
-          <img src='' className='align-right slide-in' />
+          <img src='' className='align-right slide-in' alt='placeholder' />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore
             tempora rerum, est autem cupiditate, corporis a qui libero ipsum
