@@ -17,6 +17,7 @@ import Slide from './components/13_Slide';
 import JSReferences from './components/14_JSReferences';
 import LocalStorage from './components/15_LocalStorage';
 import Navigation from './components/Navigation';
+import Refactor from './components/7_Refactor';
 import { injectGlobal } from 'styled-components';
 
 injectGlobal`
@@ -36,7 +37,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Calendar} />
           <Route exact path="/array_cardio_1" component={ArrayCardio1} />
-          <Route exact path="/array_cardio_2" component={ArrayCardio2} />
+          <Route exact path="/array_cardio_2" component={Refactor} />
           <Route exact path="/canvas" component={Canvas} />
           <Route exact path="/checkbox" component={Checkbox} />
           <Route exact path="/clock" component={Clock} />
