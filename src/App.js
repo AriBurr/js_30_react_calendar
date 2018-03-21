@@ -12,6 +12,7 @@ import ArrayCardio2 from './components/7_ArrayCardio2';
 import Canvas from './components/8_Canvas';
 import Checkbox from './components/10_Checkbox';
 import VideoPlayer from './components/11_VideoPlayer';
+import KeyDetection from './components/12_KeyDetection';
 import Navigation from './components/Navigation';
 import { injectGlobal } from 'styled-components';
 
@@ -40,6 +41,7 @@ class App extends Component {
           <Route exact path="/dev" component={DevTools} />
           <Route exact path="/drums" component={Drums} />
           <Route exact path="/flex" component={FlexPanel} />
+          <Route exact path="/key_detection" component={KeyDetection} />
           <Route exact path="/type_ahead" component={TypeAhead} />
           <Route exact path="/video_player" component={VideoPlayer} />
         </Switch>
