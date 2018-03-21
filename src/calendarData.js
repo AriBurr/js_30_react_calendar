@@ -81,5 +81,11 @@ export const calendarData = [
     image: '',
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/12_KeyDetection.js'
+  },
+  {
+    path: '/slide',
+    image: '',
+    link:
+      'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/13_Slide.js'
   }
 ];
