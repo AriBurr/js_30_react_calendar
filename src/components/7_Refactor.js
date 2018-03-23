@@ -1,7 +1,7 @@
 import React from 'react';
-import { people, comments } from '../data/arrayData';
+import { people } from '../data/arrayData';
 import styled from 'styled-components';
-import { Button, Form, Table } from 'semantic-ui-react';
+import { Form, Table } from 'semantic-ui-react';
 
 class Refactor extends React.Component {
   state = { age: 0, result: false, resultLoaded: false };
@@ -29,8 +29,8 @@ class Refactor extends React.Component {
 
   renderResult = () => {
     const { result } = this.state;
-    return (result) ? <p>True!</p> : <p>False!</p>
-  }
+    return result ? <p>True!</p> : <p>False!</p>;
+  };
 
   generateHeaders = () => {
     return ['Name', 'Year'].map((h, i) => (
@@ -54,8 +54,10 @@ class Refactor extends React.Component {
     return (
       <Container>
         <Table celled>
-          {this.generateHeaders()}
-          {this.generateRows()}
+          <Table.Header>
+            <Table.Row>{this.generateHeaders()}</Table.Row>
+          </Table.Header>
+          <Table.Body>{this.generateRows()}</Table.Body>
         </Table>
         <Form onSubmit={this.handleOneSubmit}>
           <Form.Input
@@ -73,7 +75,7 @@ class Refactor extends React.Component {
             onChange={this.handleChange}
           />
         </Form>
-        { resultLoaded && this.renderResult() }
+        {resultLoaded && this.renderResult()}
       </Container>
     );
   }

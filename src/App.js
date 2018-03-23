@@ -8,13 +8,12 @@ import CSSVariables from './components/3_CSSVariables';
 import ArrayCardio1 from './components/4_ArrayCardio1';
 import FlexPanel from './components/5_FlexPanel';
 import TypeAhead from './components/6_TypeAhead';
-import ArrayCardio2 from './components/7_ArrayCardio2';
+// import ArrayCardio2 from './components/7_ArrayCardio2';
 import Canvas from './components/8_Canvas';
 import Checkbox from './components/10_Checkbox';
 import VideoPlayer from './components/11_VideoPlayer';
 import KeyDetection from './components/12_KeyDetection';
 import Slide from './components/13_Slide';
-import JSReferences from './components/14_JSReferences';
 import LocalStorage from './components/15_LocalStorage';
 import Navigation from './components/Navigation';
 import Refactor from './components/7_Refactor';
@@ -45,7 +44,6 @@ class App extends Component {
           <Route exact path="/dev" component={DevTools} />
           <Route exact path="/drums" component={Drums} />
           <Route exact path="/flex" component={FlexPanel} />
-          <Route exact path="/references" component={JSReferences} />
           <Route exact path="/key_detection" component={KeyDetection} />
           <Route exact path="/local_storage" component={LocalStorage} />
           <Route exact path="/slide" component={Slide} />

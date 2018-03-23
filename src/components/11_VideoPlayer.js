@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/videoPlayer.css';
 
 class VideoPlayer extends React.Component {
-  state = { mousedown: false }
+  state = { mousedown: false };
   componentDidMount() {
     const player = document.querySelector('.player');
     const video = player.querySelector('.viewer');
@@ -14,7 +14,7 @@ class VideoPlayer extends React.Component {
       video: video,
       progress: progress,
       progressBar: progressBar,
-      toggle: toggle,
+      toggle: toggle
     });
   }
 
@@ -32,7 +32,7 @@ class VideoPlayer extends React.Component {
 
   handleProgress = e => {
     const { progressBar, video } = this.state;
-    const percent = (video.currentTime / video.duration) * 100;
+    const percent = video.currentTime / video.duration * 100;
     progressBar.style.flexBasis = `${percent}%`;
   };
 
@@ -50,11 +50,11 @@ class VideoPlayer extends React.Component {
     const { progress, video } = this.state;
     const scrubTime = e.clientX / progress.clientWidth * video.duration;
     video.currentTime = scrubTime;
-    debugger
+    debugger;
   };
 
-  onMouseDown = () => this.setState({ mousedown: true })
-  onMouseUp = () => this.setState({ mousedown: false })
+  onMouseDown = () => this.setState({ mousedown: true });
+  onMouseUp = () => this.setState({ mousedown: false });
 
   render() {
     const { mousedown } = this.state;
@@ -67,7 +67,10 @@ class VideoPlayer extends React.Component {
           onPause={this.updateButton}
           onTimeUpdate={this.handleProgress}
         >
-          <video className="player__video viewer" src="" />
+          <video
+            className="player__video viewer"
+            src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
+          />
           <div className="player__controls">
             <div
               className="progress"
