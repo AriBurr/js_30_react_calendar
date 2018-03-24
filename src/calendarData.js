@@ -8,6 +8,7 @@ import dev from './images/dev.png';
 import drums from './images/drums.png';
 import flex from './images/flex.png';
 import type_ahead from './images/type_ahead.png';
+import video_player from './images/video_player.png';
 
 export const calendarData = [
   {
@@ -72,7 +73,7 @@ export const calendarData = [
   },
   {
     path: '/video_player',
-    image: '',
+    image: video_player,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/11_VideoPlayer.js'
   },

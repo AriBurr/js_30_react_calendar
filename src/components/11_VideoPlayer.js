@@ -1,8 +1,10 @@
 import React from 'react';
 import '../styles/videoPlayer.css';
+import { Icon, Button } from 'semantic-ui-react';
 
 class VideoPlayer extends React.Component {
-  state = { mousedown: false };
+  state = { mousedown: false, paused: true };
+
   componentDidMount() {
     const player = document.querySelector('.player');
     const video = player.querySelector('.viewer');
@@ -25,14 +27,8 @@ class VideoPlayer extends React.Component {
   };
 
   updateButton = e => {
-    const { toggle } = this.state;
-    e.target.paused ? '►' : '❚ ❚';
-  };
-
-  handleProgress = e => {
-    const { progressBar, video } = this.state;
-    const percent = video.currentTime / video.duration * 100;
-    progressBar.style.flexBasis = `${percent}%`;
+    const { paused } = this.state;
+    this.setState({ paused: !paused });
   };
 
   skip = e => {
@@ -45,28 +41,44 @@ class VideoPlayer extends React.Component {
     video[e.target.name] = e.target.value;
   };
 
-  scrub = e => {
-    const { progress, video } = this.state;
-    const scrubTime = e.clientX / progress.clientWidth * video.duration;
-    video.currentTime = scrubTime;
-    debugger;
+  handleProgress = () => {
+    const { progressBar, video } = this.state;
+    const percent = video.currentTime / video.duration * 100;
+    progressBar.style.flexBasis = `${percent}%`;
   };
 
-  onMouseDown = () => this.setState({ mousedown: true });
-  onMouseUp = () => this.setState({ mousedown: false });
+  scrub = e => {
+    const { progress, video } = this.state;
+    const scrubTime = e.clientX / progress.offsetWidth * video.duration;
+    video.currentTime = scrubTime;
+  };
+
+  renderPlayButton = () => {
+    const { paused } = this.state;
+    return (
+      <Button
+        className="player__button toggle"
+        onClick={() => this.togglePlay()}
+      >
+        <Icon name={paused ? 'play' : 'pause'} />
+      </Button>
+    );
+  };
+
+  handleMouseMove = e => this.state.mousedown && this.scrub(e);
+  handleMouseDown = () => this.setState({ mousedown: true });
+  handleMouseUp = () => this.setState({ mousedown: false });
 
   render() {
-    const { mousedown } = this.state;
+    const { paused } = this.state;
     return (
       <div className="container">
-        <div
-          className="player"
-          onClick={this.togglePlay}
-          onPlay={this.updateButton}
-          onPause={this.updateButton}
-          onTimeUpdate={this.handleProgress}
-        >
+        <div className="player">
           <video
+            onClick={this.togglePlay}
+            onPlay={this.updateButton}
+            onPause={this.updateButton}
+            onTimeUpdate={this.handleProgress}
             className="player__video viewer"
             src="https://player.vimeo.com/external/194837908.sd.mp4?s=c350076905b78c67f74d7ee39fdb4fef01d12420&profile_id=164"
           />
@@ -74,19 +86,15 @@ class VideoPlayer extends React.Component {
             <div
               className="progress"
               onClick={this.scrub}
-              onMouseMove={mousedown ? this.scrub : undefined}
-              onMouseDown={this.setMouseDown}
-              onMouseUp={this.setMouseUp}
+              onMouseMove={this.handleMouseMove}
+              onMouseDown={this.handleMouseDown}
+              onMouseUp={this.handleMouseUp}
             >
               <div className="progress__filled" />
             </div>
-            <button
-              className="player__button toggle"
-              title="Toggle Play"
-              onClick={this.togglePlay}
-            >
-              ►
-            </button>
+
+            {this.renderPlayButton()}
+
             <input
               type="range"
               name="volume"
@@ -94,7 +102,7 @@ class VideoPlayer extends React.Component {
               min="0"
               max="1"
               step="0.05"
-              value="1"
+              defaultValue="1"
               onChange={this.handleRangeUpdate}
               onMouseMove={this.handleRangeUpdate}
             />
@@ -105,26 +113,26 @@ class VideoPlayer extends React.Component {
               min="0.5"
               max="2"
               step="0.1"
-              value="1"
+              defaultValue="1"
               onChange={this.handleRangeUpdate}
               onMouseMove={this.handleRangeUpdate}
             />
-            <button
-              onClick={this.skip}
+            <Button
               data-skip="-10"
               className="player__button"
-            >
-              « 10 s
-            </button>
-            <button
               onClick={this.skip}
+            >
+              «
+            </Button>
+            <Button
               data-skip="25"
               className="player__button"
+              onClick={this.skip}
             >
-              25 s »
-            </button>
+              »
+            </Button>
           </div>
-        </div>;
+        </div>
       </div>
     );
   }
