@@ -26,8 +26,7 @@ class VideoPlayer extends React.Component {
 
   updateButton = e => {
     const { toggle } = this.state;
-    const icon = e.target.paused ? '►' : '❚ ❚';
-    toggle.textContent = icon;
+    e.target.paused ? '►' : '❚ ❚';
   };
 
   handleProgress = e => {
