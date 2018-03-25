@@ -70,7 +70,6 @@ class VideoPlayer extends React.Component {
   handleMouseUp = () => this.setState({ mousedown: false });
 
   render() {
-    const { paused } = this.state;
     return (
       <div className="container">
         <div className="player">
