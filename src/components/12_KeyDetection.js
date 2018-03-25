@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Icon } from 'semantic-ui-react';
 
 class KeyDetection extends React.Component {
   state = { secretCode: 'abc', pressed: [], win: false, input: '' };
@@ -10,10 +11,12 @@ class KeyDetection extends React.Component {
       this.setState({ win: true });
       setTimeout(() => {
         this.setState({ win: false, pressed: [], input: '' });
-      }, 5000);
+      }, 3000);
     }
   }
 
+  handleReset = () => this.setState({ win: false, pressed: [], input: '' });
+  
   handleChange = e => {
     const { pressed, input } = this.state;
     this.setState({ pressed: [...pressed, e.key], input: input + e.key });
@@ -24,8 +27,10 @@ class KeyDetection extends React.Component {
     return (
       <Container>
         <span>
+          <h1>Guess the Secret Code!</h1>
           <input value={input} onKeyUp={this.handleChange} />
-          <div>{win && 'DING DING DING!!!'}</div>
+          <Icon name="refresh" onClick={this.handleReset} />
+          <h3>{win && 'DING DING DING!!!'}</h3>
         </span>
       </Container>
     );
@@ -41,7 +46,13 @@ const Container = styled.div`
 
   input {
     border: 0;
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+    margin-right: 1em;
+    padding: 1em;
+  }
+
+  i.icon {
+    cursor: pointer;
   }
 `;
 
