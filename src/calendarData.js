@@ -7,6 +7,7 @@ import css from './images/css_variables.png';
 import dev from './images/dev.png';
 import drums from './images/drums.png';
 import flex from './images/flex.png';
+import key_detection from './images/key_detection.png';
 import type_ahead from './images/type_ahead.png';
 import video_player from './images/video_player.png';
 
@@ -79,7 +80,7 @@ export const calendarData = [
   },
   {
     path: '/key_detection',
-    image: '',
+    image: key_detection,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/12_KeyDetection.js'
   },
