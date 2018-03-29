@@ -16,7 +16,7 @@ class KeyDetection extends React.Component {
   }
 
   handleReset = () => this.setState({ win: false, pressed: [], input: '' });
-  
+
   handleChange = e => {
     const { pressed, input } = this.state;
     this.setState({ pressed: [...pressed, e.key], input: input + e.key });
@@ -27,10 +27,14 @@ class KeyDetection extends React.Component {
     return (
       <Container>
         <span>
-          <h1>Guess the Secret Code!</h1>
-          <input value={input} onKeyUp={this.handleChange} />
-          <Icon name="refresh" onClick={this.handleReset} />
-          <h3>{win && 'DING DING DING!!!'}</h3>
+          <div className="header">
+            <h2>Guess the Secret Code!</h2>
+          </div>
+          <div className="input-wrap">
+            <input value={input} onKeyUp={this.handleChange} />
+            <Icon name="refresh" onClick={this.handleReset} />
+            <h3>{win && 'DING DING DING!!!'}</h3>
+          </div>
         </span>
       </Container>
     );
@@ -53,6 +57,21 @@ const Container = styled.div`
 
   i.icon {
     cursor: pointer;
+  }
+
+  span {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .header {
+    background-color: #eef0f2;
+    padding: 3%;
+  }
+
+  .input-wrap {
+    background-color: #fafaff;
+    margin-top: 5%;
+    padding: 5%;
   }
 `;
 
