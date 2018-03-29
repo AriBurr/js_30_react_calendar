@@ -8,6 +8,7 @@ import dev from './images/dev.png';
 import drums from './images/drums.png';
 import flex from './images/flex.png';
 import key_detection from './images/key_detection.png';
+import slide_on_scroll from './images/slide_on_scroll.png';
 import type_ahead from './images/type_ahead.png';
 import video_player from './images/video_player.png';
 
@@ -86,7 +87,7 @@ export const calendarData = [
   },
   {
     path: '/slide',
-    image: '',
+    image: slide_on_scroll,
     link:
       'https://github.com/AriBurr/js_30_react_calendar/blob/master/src/components/13_Slide.js'
   },
