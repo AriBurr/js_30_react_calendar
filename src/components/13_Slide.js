@@ -2,20 +2,21 @@ import React from 'react';
 import '../styles/slide.css';
 
 class Slide extends React.Component {
+  componentWillMount() {
+    this.checkSlide = this.debounce(this.checkSlide);
+  }
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.checkSlide);
     this.setState({ sliderImages: document.querySelectorAll('.slide-in') });
   }
 
-  handleScroll = e => this.debounce(this.checkSlide, e);
-
-  debounce = (func, e, wait = 20, immediate = true) => {
+  debounce = (func, wait, immediate) => {
     let timeout;
     return function() {
-      const context = e.target,
-        args = arguments;
-      var later = function() {
-        let timeout = null;
+      const context = this,
+      args = arguments;
+      let later = function() {
+        timeout = null;
         if (!immediate) func.apply(context, args);
       };
       const callNow = immediate && !timeout;
